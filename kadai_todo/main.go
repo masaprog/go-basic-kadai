@@ -37,8 +37,8 @@ func main() {
 	fmt.Println("--- ToDoリスト（初期状態） ---")
 	printTools(todos)
 	fmt.Println() //空白の行を追加
+	todos[0].Complete()
 	todos[1].Complete()
-	todos[2].Complete()
 	fmt.Println() //空白の行を追加
 	fmt.Println("--- ToDoリスト（最終状態） ---")
 	printTools(todos)
