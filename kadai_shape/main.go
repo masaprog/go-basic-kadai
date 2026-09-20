@@ -13,6 +13,7 @@ type ValidationError struct{
 	Value float64
 }
 
+//エラーメソッドの定義
 func (v *ValidationError) Error() string{
 	return fmt.Sprintf("[バリデーションエラー] %s: %s (Value: %.2f)", v.Message, v.Field, v.Value )
 	}
@@ -44,6 +45,7 @@ func (r Rectangle) Perimeter() float64{
 	return 2 * (r.Width + r.Height)
 }
 
+//円の面積を求めるメソッド
 func (c Circle) Area() float64{
 	return math.Pi * c.Radius * c.Radius
 }
@@ -53,6 +55,7 @@ func (c Circle) Perimeter() float64{
 	return 2 * c.Radius * math.Pi
 }
 
+//長方形、円それぞれでエラー処理を返す。問題なければnilを返す。
 func validateShape(s Shape) error{
 	switch val := s.(type){
 	case Rectangle: 
@@ -111,6 +114,8 @@ func main(){
 			}
 			}
 			fmt.Println()
+
+			//クリアした図形のみに対する計算
 			fmt.Println("---検証済み図形の一括計算---")
 			for _, s := range calcShapes{
 				fmt.Printf("図形: %T | 面積: %.2f | 周長: %.2f\n", s, s.Area(), s.Perimeter())
