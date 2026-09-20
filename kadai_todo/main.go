@@ -28,7 +28,7 @@ func printTools(t []Todo) {
 	}
 }
 
-func main() {
+func main() {　
 	todos := []Todo{
 		{1, "学習計画", false},
 		{2, "環境構築", false},
